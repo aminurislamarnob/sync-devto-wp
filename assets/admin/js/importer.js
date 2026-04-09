@@ -69,7 +69,7 @@
 				var elapsed = Math.floor( ( Date.now() - progressStartTime ) / 1000 );
 				showInProgressMessage( elapsed );
 			}, 1000 );
-			$resultsWrap.show();
+			$resultsWrap.addClass( 'is-visible' );
 		} else {
 			if ( progressTimer ) {
 				window.clearInterval( progressTimer );
@@ -133,7 +133,7 @@
 			$messagesLog.empty();
 		}
 
-		$resultsWrap.show();
+		$resultsWrap.addClass( 'is-visible' );
 	}
 
 	function displayError( message ) {
@@ -143,7 +143,7 @@
 			'</p></div>'
 		);
 		$messagesLog.empty();
-		$resultsWrap.show();
+		$resultsWrap.addClass( 'is-visible' );
 	}
 
 	$( document ).ready( init );

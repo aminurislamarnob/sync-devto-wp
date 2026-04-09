@@ -1,133 +1,453 @@
-.devto-wp-importer-wrap {
-	max-width: 800px;
+/* ==========================================================================
+   Devto WP Importer — Admin Page
+   ========================================================================== */
+
+:root {
+	--dwi-primary: #3B49DF;
+	--dwi-primary-hover: #2F3AB2;
+	--dwi-primary-light: #EEF0FF;
+	--dwi-success: #059669;
+	--dwi-success-light: #ECFDF5;
+	--dwi-warning: #D97706;
+	--dwi-warning-light: #FFFBEB;
+	--dwi-error: #DC2626;
+	--dwi-error-light: #FEF2F2;
+	--dwi-text: #1E293B;
+	--dwi-text-muted: #64748B;
+	--dwi-border: #E2E8F0;
+	--dwi-bg-subtle: #F8FAFC;
+	--dwi-radius: 12px;
+	--dwi-radius-sm: 8px;
+	--dwi-shadow: 0 1px 3px rgb(0 0 0 / 6%), 0 1px 2px rgb(0 0 0 / 4%);
+	--dwi-shadow-md: 0 4px 6px rgb(0 0 0 / 5%), 0 2px 4px rgb(0 0 0 / 4%);
+	--dwi-transition: 0.2s ease;
 }
 
-.devto-wp-importer-wrap .wp-heading-inline {
-	float: none;
-	margin-bottom: 8px;
+/* Layout
+   ========================================================================== */
+
+.devto-wp-importer-wrap {
+	max-width: 1200px;
+	margin: 20px 20px 20px 0;
 }
+
+.devto-wp-importer-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+	gap: 24px;
+	align-items: start;
+}
+
+.devto-wp-importer-main,
+.devto-wp-importer-sidebar {
+	display: grid;
+	gap: 24px;
+}
+
+/* Cards
+   ========================================================================== */
 
 .devto-wp-importer-card {
 	background: #fff;
-	border: 1px solid #c3c4c7;
-	border-radius: 4px;
-	padding: 20px 24px;
-	margin-bottom: 20px;
+	border: 1px solid var(--dwi-border);
+	border-radius: var(--dwi-radius);
+	padding: 28px;
+	box-shadow: var(--dwi-shadow);
+	transition: box-shadow var(--dwi-transition);
+}
+
+.devto-wp-importer-card:hover {
+	box-shadow: var(--dwi-shadow-md);
 }
 
 .devto-wp-importer-card h2 {
-	margin-top: 0;
-	padding-top: 0;
-	border-bottom: 1px solid #f0f0f1;
-	padding-bottom: 12px;
-	margin-bottom: 16px;
+	margin: 0 0 20px;
+	padding: 0 0 16px;
+	border-bottom: 1px solid var(--dwi-border);
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--dwi-text);
+	letter-spacing: -0.01em;
 }
 
-.devto-wp-importer-import-section {
-	text-align: center;
-	padding: 30px 20px;
+.devto-wp-importer-card-emphasis {
+	border-color: transparent;
+	background: linear-gradient(135deg, #fff 0%, var(--dwi-primary-light) 100%);
+	border-left: 3px solid var(--dwi-primary);
 }
+
+/* Form fields
+   ========================================================================== */
+
+.devto-wp-importer-field-group {
+	margin-bottom: 24px;
+}
+
+.devto-wp-importer-field-group:last-child {
+	margin-bottom: 0;
+}
+
+.devto-wp-importer-field-group label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--dwi-text);
+}
+
+.devto-wp-importer-field-group .description {
+	display: block;
+	margin-top: 6px;
+	font-size: 12.5px;
+	color: var(--dwi-text-muted);
+	line-height: 1.5;
+}
+
+.devto-wp-importer-field-group .description a {
+	color: var(--dwi-primary);
+	text-decoration: none;
+}
+
+.devto-wp-importer-field-group .description a:hover {
+	text-decoration: underline;
+}
+
+.devto-wp-importer-field-group input[type="password"],
+.devto-wp-importer-field-group input[type="text"],
+.devto-wp-importer-field-group select {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	padding: 9px 12px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--dwi-text);
+	background: #fff;
+	border: 1px solid var(--dwi-border);
+	border-radius: var(--dwi-radius-sm);
+	box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
+	transition: border-color var(--dwi-transition), box-shadow var(--dwi-transition);
+	box-sizing: border-box;
+}
+
+.devto-wp-importer-field-group input[type="password"]:focus,
+.devto-wp-importer-field-group input[type="text"]:focus,
+.devto-wp-importer-field-group select:focus {
+	outline: none;
+	border-color: var(--dwi-primary);
+	box-shadow: 0 0 0 3px rgb(59 73 223 / 15%);
+}
+
+.devto-wp-importer-fields-row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.devto-wp-importer-field-divider {
+	height: 1px;
+	background: var(--dwi-border);
+	margin: 24px 0;
+}
+
+/* Buttons
+   ========================================================================== */
+
+.devto-wp-importer-btn-save {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 8px;
+	padding: 10px 24px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #fff;
+	background: var(--dwi-text);
+	border: none;
+	border-radius: var(--dwi-radius-sm);
+	cursor: pointer;
+	transition: background var(--dwi-transition), transform var(--dwi-transition);
+}
+
+.devto-wp-importer-btn-save:hover {
+	background: #0F172A;
+}
+
+.devto-wp-importer-btn-save:active {
+	transform: scale(0.98);
+}
+
+/* Import section
+   ========================================================================== */
 
 .devto-wp-importer-import-section p {
-	color: #646970;
-	margin-bottom: 20px;
+	margin: 0 0 20px;
+	color: var(--dwi-text-muted);
 	font-size: 14px;
+	line-height: 1.6;
+}
+
+.devto-wp-importer-import-actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
 }
 
 #devto-wp-importer-import-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 28px;
 	font-size: 14px;
-	padding: 8px 24px;
+	font-weight: 600;
 	height: auto;
+	color: #fff;
+	background: var(--dwi-primary);
+	border: none;
+	border-radius: var(--dwi-radius-sm);
+	box-shadow: 0 1px 3px rgb(59 73 223 / 30%);
+	cursor: pointer;
+	transition: background var(--dwi-transition), box-shadow var(--dwi-transition), transform var(--dwi-transition);
+}
+
+#devto-wp-importer-import-btn:hover:not(:disabled) {
+	background: var(--dwi-primary-hover);
+	box-shadow: 0 4px 8px rgb(59 73 223 / 30%);
+	transform: translateY(-1px);
+}
+
+#devto-wp-importer-import-btn:active:not(:disabled) {
+	transform: translateY(0);
+	box-shadow: 0 1px 2px rgb(59 73 223 / 30%);
+}
+
+#devto-wp-importer-import-btn:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
 }
 
 #devto-wp-importer-spinner {
 	float: none;
-	margin: 0 0 0 8px;
-	vertical-align: middle;
+	margin: 0;
+}
+
+/* Results
+   ========================================================================== */
+
+.devto-wp-importer-results {
+	margin-top: 24px;
+	opacity: 0;
+	transform: translateY(8px);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.devto-wp-importer-results.is-visible {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 .devto-wp-importer-results-table {
 	margin-top: 12px;
+	border-radius: var(--dwi-radius-sm);
+	overflow: hidden;
+	border: 1px solid var(--dwi-border);
 }
 
 .devto-wp-importer-results-table thead th {
 	font-weight: 600;
+	font-size: 13px;
+	background: var(--dwi-bg-subtle);
+	color: var(--dwi-text);
+	border-bottom: 1px solid var(--dwi-border);
+}
+
+.devto-wp-importer-results-table td {
+	font-size: 13px;
 }
 
 .devto-wp-importer-results-table .devto-wp-importer-created td:first-child {
-	color: #00a32a;
+	color: var(--dwi-success);
+	font-weight: 500;
 }
 
 .devto-wp-importer-results-table .devto-wp-importer-updated td:first-child {
-	color: #0073aa;
+	color: var(--dwi-primary);
+	font-weight: 500;
 }
 
 .devto-wp-importer-results-table .devto-wp-importer-skipped td:first-child {
-	color: #646970;
+	color: var(--dwi-text-muted);
+	font-weight: 500;
 }
 
 .devto-wp-importer-results-table .devto-wp-importer-failed td:first-child {
-	color: #d63638;
+	color: var(--dwi-error);
+	font-weight: 500;
 }
 
 .devto-wp-importer-messages {
 	margin-top: 16px;
-	padding: 12px 16px;
-	background: #f6f7f7;
-	border-radius: 4px;
+	padding: 16px 18px;
+	background: var(--dwi-bg-subtle);
+	border-radius: var(--dwi-radius-sm);
+	border: 1px solid var(--dwi-border);
 }
 
 .devto-wp-importer-messages h4 {
-	margin: 0 0 8px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--dwi-text);
 }
 
 .devto-wp-importer-messages ul {
 	margin: 0;
 	padding: 0;
-	list-style: disc inside;
+	list-style: none;
 }
 
 .devto-wp-importer-messages li {
-	padding: 4px 0;
+	position: relative;
+	padding: 5px 0 5px 16px;
 	font-size: 13px;
-	color: #50575e;
+	color: var(--dwi-text-muted);
+	line-height: 1.5;
 }
 
-.devto-wp-importer-last-import {
-	margin-top: 12px;
-	padding: 12px 16px;
-	background: #f0f6fc;
-	border-left: 4px solid #0073aa;
-	border-radius: 2px;
+.devto-wp-importer-messages li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 12px;
+	width: 5px;
+	height: 5px;
+	background: var(--dwi-border);
+	border-radius: 50%;
 }
 
-.devto-wp-importer-last-import p {
-	margin: 4px 0;
+/* Sidebar — Last Import
+   ========================================================================== */
+
+.devto-wp-importer-last-import-date {
+	margin: 0 0 16px;
+	font-size: 13px;
+	color: var(--dwi-text-muted);
 }
 
-.devto-wp-importer-last-import strong {
-	color: #1d2327;
+.devto-wp-importer-last-import-date strong {
+	color: var(--dwi-text);
 }
 
 .devto-wp-importer-info-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 8px;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
 }
 
-.devto-wp-importer-info-grid span {
-	display: block;
-	padding: 4px 0;
+.devto-wp-importer-info-grid > div {
+	padding: 14px 16px;
+	border: 1px solid var(--dwi-border);
+	border-radius: var(--dwi-radius-sm);
+	background: var(--dwi-bg-subtle);
+	transition: border-color var(--dwi-transition);
+}
+
+.devto-wp-importer-info-grid > div:hover {
+	border-color: #CBD5E1;
 }
 
 .devto-wp-importer-info-grid .devto-wp-importer-label {
-	color: #646970;
-	font-size: 12px;
+	display: block;
+	color: var(--dwi-text-muted);
+	font-size: 11px;
+	font-weight: 600;
 	text-transform: uppercase;
-	letter-spacing: 0.5px;
+	letter-spacing: 0.05em;
+	margin-bottom: 6px;
 }
 
 .devto-wp-importer-info-grid .devto-wp-importer-value {
-	font-weight: 600;
-	font-size: 18px;
+	display: block;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 1;
+	color: var(--dwi-text);
+}
+
+.devto-wp-importer-stat-created .devto-wp-importer-value { color: var(--dwi-success); }
+.devto-wp-importer-stat-updated .devto-wp-importer-value { color: var(--dwi-primary); }
+.devto-wp-importer-stat-skipped .devto-wp-importer-value { color: var(--dwi-text-muted); }
+.devto-wp-importer-stat-failed .devto-wp-importer-value { color: var(--dwi-error); }
+
+/* Sidebar — Steps
+   ========================================================================== */
+
+.devto-wp-importer-steps {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: steps;
+}
+
+.devto-wp-importer-steps li {
+	position: relative;
+	margin-bottom: 16px;
+	padding-left: 36px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--dwi-text-muted);
+	counter-increment: steps;
+}
+
+.devto-wp-importer-steps li:last-child {
+	margin-bottom: 0;
+}
+
+.devto-wp-importer-steps li::before {
+	content: counter(steps);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 24px;
+	height: 24px;
+	background: var(--dwi-primary-light);
+	color: var(--dwi-primary);
+	border-radius: 50%;
+	font-size: 12px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Inline notices override
+   ========================================================================== */
+
+.devto-wp-importer-results .notice.inline {
+	margin: 0;
+	border-radius: var(--dwi-radius-sm);
+}
+
+/* Responsive
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+	.devto-wp-importer-layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 782px) {
+	.devto-wp-importer-card {
+		padding: 20px;
+	}
+
+	.devto-wp-importer-fields-row {
+		grid-template-columns: 1fr;
+	}
+
+	#devto-wp-importer-import-btn {
+		width: 100%;
+		justify-content: center;
+	}
 }
