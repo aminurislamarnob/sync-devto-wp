@@ -1,0 +1,19 @@
+---
+description: Architecture and integration conventions for this WordPress plugin
+alwaysApply: true
+---
+
+# Devto WP Importer Architecture
+
+- Keep bootstrap minimal in `devto-wp-importer.php`: define constants, load Composer autoload, expose `welabs_devto_wp_importer()`, and initialize the singleton.
+- Keep core plugin logic inside `includes/DevtoWpImporter.php` under namespace `WeLabs\DevtoWpImporter\`.
+- Register behavior through hooks and filters (`add_action`, `add_filter`) instead of direct execution paths.
+- Prefer container-style class access via the plugin singleton for feature modules (for example assets, REST, import services).
+- When adding WooCommerce or REST integrations, use dedicated methods and hooks (`rest_api_init`, WooCommerce-specific actions) rather than scattered callbacks.
+- Put new service classes in `includes/` and wire them from `init_classes()` to keep a single composition point.
+
+## Integration Notes
+
+- Keep plugin text domain as `devto-wp-importer`.
+- Use action/filter prefixes based on plugin slug, e.g. `devto_wp_importer_*`.
+- Do not edit core WordPress/WooCommerce/Dokan files; extend behavior through hooks only.

@@ -1,0 +1,22 @@
+---
+description: PHP coding and security standards for this plugin
+globs: **/*.php
+alwaysApply: false
+---
+
+# PHP and WordPress Standards
+
+- Start direct-entry PHP files with `if ( ! defined( 'ABSPATH' ) ) { exit; }`.
+- Follow existing WPCS style in this repo (`phpcs.xml`) and keep compatibility with PHP 7.4+.
+- Use strict comparisons (`===`, `!==`) and strict `in_array(..., true)` checks.
+- Sanitize input early (`sanitize_text_field`, `sanitize_email`, `absint`, `wc_clean`) and escape output late (`esc_html`, `esc_attr`, `esc_url`, `wp_kses_post`).
+- Never concatenate user input in SQL; use `$wpdb->prepare()` for dynamic values.
+- Keep methods small and single-purpose; add short PHPDoc blocks for public methods.
+
+## Example: sanitize and escape
+
+```php
+// Good pattern for request handling.
+$author = isset( $_POST['author'] ) ? sanitize_text_field( wp_unslash( $_POST['author'] ) ) : '';
+echo esc_html( $author );
+```

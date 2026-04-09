@@ -1,0 +1,23 @@
+---
+description: Hook, asset, and i18n conventions for plugin features
+globs: "{devto-wp-importer.php,includes/**/*.php,templates/**/*.php}"
+alwaysApply: false
+---
+
+# Hooks, Assets, and i18n
+
+- Register scripts/styles first (`wp_register_script`, `wp_register_style`) and enqueue from dedicated methods.
+- Keep admin and frontend asset handling separate, similar to `includes/Assets.php`.
+- Use class-method callbacks for hooks (`[ $this, 'method_name' ]`) in plugin classes.
+- Prefer named plugin hooks (for example `devto_wp_importer_before_template_part`) before/after extension points.
+- Wrap user-facing text with translation functions using text domain `devto-wp-importer`.
+- For templates, resolve paths centrally and validate existence before include.
+
+## Example: translatable and escaped output
+
+```php
+printf(
+	'<h2>%s</h2>',
+	esc_html__( 'Import from Dev.to', 'devto-wp-importer' )
+);
+```

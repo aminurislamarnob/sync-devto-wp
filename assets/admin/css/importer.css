@@ -1,0 +1,133 @@
+.devto-wp-importer-wrap {
+	max-width: 800px;
+}
+
+.devto-wp-importer-wrap .wp-heading-inline {
+	float: none;
+	margin-bottom: 8px;
+}
+
+.devto-wp-importer-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px 24px;
+	margin-bottom: 20px;
+}
+
+.devto-wp-importer-card h2 {
+	margin-top: 0;
+	padding-top: 0;
+	border-bottom: 1px solid #f0f0f1;
+	padding-bottom: 12px;
+	margin-bottom: 16px;
+}
+
+.devto-wp-importer-import-section {
+	text-align: center;
+	padding: 30px 20px;
+}
+
+.devto-wp-importer-import-section p {
+	color: #646970;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+#devto-wp-importer-import-btn {
+	font-size: 14px;
+	padding: 8px 24px;
+	height: auto;
+}
+
+#devto-wp-importer-spinner {
+	float: none;
+	margin: 0 0 0 8px;
+	vertical-align: middle;
+}
+
+.devto-wp-importer-results-table {
+	margin-top: 12px;
+}
+
+.devto-wp-importer-results-table thead th {
+	font-weight: 600;
+}
+
+.devto-wp-importer-results-table .devto-wp-importer-created td:first-child {
+	color: #00a32a;
+}
+
+.devto-wp-importer-results-table .devto-wp-importer-updated td:first-child {
+	color: #0073aa;
+}
+
+.devto-wp-importer-results-table .devto-wp-importer-skipped td:first-child {
+	color: #646970;
+}
+
+.devto-wp-importer-results-table .devto-wp-importer-failed td:first-child {
+	color: #d63638;
+}
+
+.devto-wp-importer-messages {
+	margin-top: 16px;
+	padding: 12px 16px;
+	background: #f6f7f7;
+	border-radius: 4px;
+}
+
+.devto-wp-importer-messages h4 {
+	margin: 0 0 8px;
+}
+
+.devto-wp-importer-messages ul {
+	margin: 0;
+	padding: 0;
+	list-style: disc inside;
+}
+
+.devto-wp-importer-messages li {
+	padding: 4px 0;
+	font-size: 13px;
+	color: #50575e;
+}
+
+.devto-wp-importer-last-import {
+	margin-top: 12px;
+	padding: 12px 16px;
+	background: #f0f6fc;
+	border-left: 4px solid #0073aa;
+	border-radius: 2px;
+}
+
+.devto-wp-importer-last-import p {
+	margin: 4px 0;
+}
+
+.devto-wp-importer-last-import strong {
+	color: #1d2327;
+}
+
+.devto-wp-importer-info-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+}
+
+.devto-wp-importer-info-grid span {
+	display: block;
+	padding: 4px 0;
+}
+
+.devto-wp-importer-info-grid .devto-wp-importer-label {
+	color: #646970;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.devto-wp-importer-info-grid .devto-wp-importer-value {
+	font-weight: 600;
+	font-size: 18px;
+}
