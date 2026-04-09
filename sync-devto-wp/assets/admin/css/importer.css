@@ -1,0 +1,140 @@
+.sdwp-wrap {
+	max-width: 800px;
+}
+
+.sdwp-wrap .sdwp-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.sdwp-wrap .sdwp-header img {
+	width: 36px;
+	height: 36px;
+}
+
+.sdwp-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px 24px;
+	margin-bottom: 20px;
+}
+
+.sdwp-card h2 {
+	margin-top: 0;
+	padding-top: 0;
+	border-bottom: 1px solid #f0f0f1;
+	padding-bottom: 12px;
+	margin-bottom: 16px;
+}
+
+.sdwp-import-section {
+	text-align: center;
+	padding: 30px 20px;
+}
+
+.sdwp-import-section p {
+	color: #646970;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+#sdwp-import-btn {
+	font-size: 14px;
+	padding: 8px 24px;
+	height: auto;
+}
+
+#sdwp-spinner {
+	float: none;
+	margin: 0 0 0 8px;
+	vertical-align: middle;
+}
+
+.sdwp-results-table {
+	margin-top: 12px;
+}
+
+.sdwp-results-table thead th {
+	font-weight: 600;
+}
+
+.sdwp-results-table .sdwp-created td:first-child {
+	color: #00a32a;
+}
+
+.sdwp-results-table .sdwp-updated td:first-child {
+	color: #0073aa;
+}
+
+.sdwp-results-table .sdwp-skipped td:first-child {
+	color: #646970;
+}
+
+.sdwp-results-table .sdwp-failed td:first-child {
+	color: #d63638;
+}
+
+.sdwp-messages {
+	margin-top: 16px;
+	padding: 12px 16px;
+	background: #f6f7f7;
+	border-radius: 4px;
+}
+
+.sdwp-messages h4 {
+	margin: 0 0 8px;
+}
+
+.sdwp-messages ul {
+	margin: 0;
+	padding: 0;
+	list-style: disc inside;
+}
+
+.sdwp-messages li {
+	padding: 4px 0;
+	font-size: 13px;
+	color: #50575e;
+}
+
+.sdwp-last-import {
+	margin-top: 12px;
+	padding: 12px 16px;
+	background: #f0f6fc;
+	border-left: 4px solid #0073aa;
+	border-radius: 2px;
+}
+
+.sdwp-last-import p {
+	margin: 4px 0;
+}
+
+.sdwp-last-import strong {
+	color: #1d2327;
+}
+
+.sdwp-info-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+}
+
+.sdwp-info-grid span {
+	display: block;
+	padding: 4px 0;
+}
+
+.sdwp-info-grid .sdwp-label {
+	color: #646970;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.sdwp-info-grid .sdwp-value {
+	font-weight: 600;
+	font-size: 18px;
+}
