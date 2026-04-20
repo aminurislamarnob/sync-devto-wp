@@ -13,7 +13,7 @@ class Assets {
 	}
 
 	public function enqueue_admin_assets( $hook ) {
-		if ( $hook !== 'tools_page_devto-wp-importer' ) {
+		if ( $hook !== 'posts_page_devto-wp-importer' ) {
 			return;
 		}
 
