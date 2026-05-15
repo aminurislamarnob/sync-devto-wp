@@ -14,7 +14,7 @@ final class DevtoWpImporter {
      *
      * @var string
      */
-    public $version = '0.0.1';
+    public $version = '0.0.2';
 
     /**
      * Instance of self
@@ -194,6 +194,7 @@ final class DevtoWpImporter {
         $this->container['importer']   = new Importer( $this->container['api_client'] );
         $this->container['admin']      = new Admin( $this->container['importer'] );
         $this->container['scripts']    = new Assets();
+        $this->container['rest_fields'] = new RestFields();
     }
 
     /**
